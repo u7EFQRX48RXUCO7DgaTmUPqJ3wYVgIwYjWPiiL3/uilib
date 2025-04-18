@@ -1,5 +1,3 @@
-
-
 if getgenv().loaded then 
     getgenv().library:unload_menu() 
 end 
@@ -67,7 +65,7 @@ end
 
 -- Library init
     getgenv().library = {
-        directory = "\104\97\122\101wtf",
+        directory = "hazewtf",
         folders = {
             "/fonts",
             "/configs",
@@ -530,7 +528,7 @@ end
     -- Library element functions
         function library:window(properties)
             local cfg = {
-                name = properties.name or properties.Name or "\104\97\122\101.wtf",
+                name = properties.name or properties.Name or "haze.wtf",
                 size = properties.size or properties.Size or dim2(0, 500, 0, 362), 
                 selected_tab 
             }
@@ -552,6 +550,11 @@ end
                     BorderSizePixel = 0;
                     BackgroundColor3 = rgb(255, 255, 255)
                 });
+
+                game:GetService("UserInputService").InputBegan:Connect(function(key, gpe)
+                    if not gpe and key.KeyCode == Enum.KeyCode.RightShift then window_outline.Visible = not window_outline.Visible end
+                end)
+
                 window_outline.Position = dim2(0, window_outline.AbsolutePosition.Y, 0, window_outline.AbsolutePosition.Y)
                 cfg.main_outline = window_outline
 
@@ -882,7 +885,7 @@ end
             return setmetatable(cfg, library)
         end 
 
-        local watermark = library:watermark({name = "\104\97\122\101.wtf - 100 fps - 100 ping"})
+        local watermark = library:watermark({name = "fourtwenty - 100 fps - 100 ping"})
         local fps = 0
         local watermark_delay = tick() 
 
@@ -892,7 +895,7 @@ end
             if tick() - watermark_delay > 1 then 
                 watermark_delay = tick()
                 local ping = math.floor(stats.PerformanceStats.Ping:GetValue()) .. "ms"                
-                watermark.update_text(string.format("\104\97\122\101.wtf -  %s fps - ping: %s", fps, ping))
+                watermark.update_text(string.format("haze.wtf -  %s fps - ping: %s", fps, ping))
                 fps = 0
             end
         end)
