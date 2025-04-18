@@ -67,7 +67,7 @@ end
 
 -- Library init
     getgenv().library = {
-        directory = "fijihook",
+        directory = "\104\97\122\101wtf",
         folders = {
             "/fonts",
             "/configs",
@@ -530,7 +530,7 @@ end
     -- Library element functions
         function library:window(properties)
             local cfg = {
-                name = properties.name or properties.Name or "fijihack.panda",
+                name = properties.name or properties.Name or "\104\97\122\101.wtf",
                 size = properties.size or properties.Size or dim2(0, 500, 0, 362), 
                 selected_tab 
             }
@@ -882,7 +882,7 @@ end
             return setmetatable(cfg, library)
         end 
 
-        local watermark = library:watermark({name = "fiji ware - 100 fps - 100 ping"})
+        local watermark = library:watermark({name = "\104\97\122\101.wtf - 100 fps - 100 ping"})
         local fps = 0
         local watermark_delay = tick() 
 
@@ -892,7 +892,7 @@ end
             if tick() - watermark_delay > 1 then 
                 watermark_delay = tick()
                 local ping = math.floor(stats.PerformanceStats.Ping:GetValue()) .. "ms"                
-                watermark.update_text(string.format("fiji ware -  %s fps - ping: %s", fps, ping))
+                watermark.update_text(string.format("\104\97\122\101.wtf -  %s fps - ping: %s", fps, ping))
                 fps = 0
             end
         end)
